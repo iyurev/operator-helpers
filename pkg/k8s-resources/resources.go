@@ -22,14 +22,14 @@ func makeResources(cpuLimit, memLimit, cpuReq, memReq string) corev1.ResourceReq
 	return res
 }
 
-func makeCommonLabels(appName, deploymentName string) map[string]string {
+func MakeCommonLabels(appName, deploymentName string) map[string]string {
 	return map[string]string{
 		"app":        appName,
 		"deployment": deploymentName,
 	}
 }
 
-func commonServiceAccount(saName, namespace string) (corev1.ServiceAccount, error) {
+func CommonServiceAccount(saName, namespace string) (corev1.ServiceAccount, error) {
 	if saName == "" {
 		return corev1.ServiceAccount{}, fmt.Errorf("Empty service account name!!!")
 	}
